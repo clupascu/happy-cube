@@ -3,4 +3,5 @@ lib_dir = "#{test_dir}/../lib"
 
 $LOAD_PATH.unshift lib_dir
 
-require 'sample'
+require 'happy-cube'
+require 'piece'
