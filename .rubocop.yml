@@ -3,5 +3,7 @@
 #    - enter files here
 Style/TrailingWhitespace:
   Enabled: false
+StringLiterals:
+    Enabled: false
 Documentation:
   Enabled: false

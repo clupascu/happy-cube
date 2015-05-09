@@ -15,12 +15,7 @@ module HappyCube
     def initialize(original_piece, rotation, flipped)
       @original_piece = original_piece
 
-      rotation_amount = case flipped
-      when false
-        -4 * rotation
-      when true
-        5 + rotation * 4
-      end
+      rotation_amount = flipped ? 5 + rotation * 4 : -4 * rotation
 
       rotated_edges = original_piece.edges.rotate(rotation_amount)
       rotated_edges.reverse! if flipped
