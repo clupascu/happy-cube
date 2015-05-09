@@ -4,6 +4,14 @@ module HappyCube
   class RotatedPiece
     include PrintablePiece
 
+    def self.get_all_possible_rotations(piece)
+      rotations = [*0...4]
+      flippings = [true, false]
+      rotations.product(flippings).map do |r, f|
+        RotatedPiece.new piece, r, f
+      end
+    end
+
     def initialize(original_piece, rotation, flipped)
       @original_piece = original_piece
 

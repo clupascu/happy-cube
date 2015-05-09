@@ -77,5 +77,10 @@ module HappyCube
         "@@ @ ",
         flipped.to_s)
     end
+
+    def test_get_all_possible_rotations
+      rotations = RotatedPiece.get_all_possible_rotations(PIECE)
+      assert 8, rotations.count
+    end
   end
 end
