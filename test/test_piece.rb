@@ -34,5 +34,17 @@ module HappyCube
       end
       assert_equal 'Invalid edge length. Must be 16.', err.message
     end
+
+    def test_string_representation
+      p = Piece.new([0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1])
+
+      assert_equal(
+        " @ @ \n" +
+        "@@@@ \n" +
+        " @@@@\n" +
+        "@@@@ \n" +
+        "@ @  ", 
+        p.to_s)
+    end
   end
 end

@@ -1,5 +1,9 @@
+require 'printable_piece'
+
 module HappyCube
   class Piece
+    include PrintablePiece
+
     # Creates a HappyCube piece, by specifying
     # its edge configuration.
     # Pieces are 5x5 squares, with the middle
