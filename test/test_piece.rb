@@ -2,69 +2,37 @@ require 'test_helper'
 
 module HappyCube
   class TestPiece < Minitest::Test
-    def test_can_create
-      Piece.new([
-        '  A  ',
-        ' AAA ',
-        'AAAAA',
-        ' AAA ',
-        'AAA  '])
+    def test_can_create_specifying_the_edges
+      p = Piece.new([0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1])
+
+      assert_equal [
+        [0, 1, 0, 1, 0],
+        [1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1],
+        [1, 1, 1, 1, 0],
+        [1, 0, 1, 0, 0]
+      ], p.rows
     end
 
-    def test_fails_if_row_is_shorter
-      third_row_shorter = [
-        '  A  ',
-        ' AAA ',
-        'AAAA',
-        ' AAA ',
-        'AAA  ']
-
-      ex = assert_raises(InvalidPieceError) do
-        Piece.new third_row_shorter
+    def test_validates_edges_are_not_nil
+      err = assert_raises(InvalidPieceError) do
+        Piece.new(nil)
       end
-      assert_equal 'Illegal row size', ex.message
+      assert_equal 'Edges cannot be nil', err.message
     end
 
-    def test_fails_if_row_is_longer
-      third_row_longer = [
-        '  A  ',
-        ' AAA ',
-        'AAAAAA',
-        ' AAA ',
-        'AAA  ']
-
-      ex = assert_raises(InvalidPieceError) do
-        Piece.new third_row_longer
+    def test_fails_if_edges_too_short
+      err = assert_raises(InvalidPieceError) do
+        Piece.new([])
       end
-      assert_equal 'Illegal row size', ex.message
+      assert_equal 'Invalid edge length. Must be 16.', err.message
     end
 
-    def test_fails_if_less_rows_than_expected
-      third_row_longer = [
-        '  A  ',
-        ' AAA ',
-        'AAAAA',
-        'AAA  ']
-
-      ex = assert_raises(InvalidPieceError) do
-        Piece.new third_row_longer
+    def test_fails_if_edges_too_long
+      err = assert_raises(InvalidPieceError) do
+        Piece.new([1] * 17)
       end
-      assert_equal 'Illegal row count', ex.message
-    end
-
-    def test_fails_if_more_rows_than_expected
-      third_row_longer = [
-        '  A  ',
-        ' AAA ',
-        'AAAAA',
-        ' AAA ',
-        ' AAA ',
-        'AAA  ']
-
-      ex = assert_raises(InvalidPieceError) do
-        Piece.new third_row_longer
-      end
-      assert_equal 'Illegal row count', ex.message
+      assert_equal 'Invalid edge length. Must be 16.', err.message
     end
   end
 end
