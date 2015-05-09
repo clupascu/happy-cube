@@ -23,7 +23,11 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-notification :libnotify, timeout: 1, transient: true, append: true, urgency: :critical
+notification :libnotify, 
+             timeout: 1, 
+             transient: true, 
+             append: true, 
+             urgency: :critical
 
 guard :minitest do
   # with Minitest::Unit

@@ -1,12 +1,12 @@
 module HappyCube
   class Piece
-    # Creates a HappyCube piece, by specifying 
+    # Creates a HappyCube piece, by specifying
     # its edge configuration.
-    # Pieces are 5x5 squares, with the middle 
+    # Pieces are 5x5 squares, with the middle
     # (3x3 part) filled.
-    # The edges are jagged, that's why they are 
+    # The edges are jagged, that's why they are
     # represented using 0s (gaps) abd 1s (filled portion),
-    # enumerated in clockwise order starting from the 
+    # enumerated in clockwise order starting from the
     # top left corner.
     #
     # For example, a piece whose edges are:
@@ -20,9 +20,7 @@ module HappyCube
     # @ @
     #
     def initialize(edges)
-      raise InvalidPieceError, 'Edges cannot be nil' unless edges
-      raise InvalidPieceError, 'Invalid edge length. Must be 16.' unless edges.count == 16
-
+      validate! edges
       @edges = edges
       @rows = [
         [*@edges[0...CUBE_SIZE]],
@@ -34,6 +32,14 @@ module HappyCube
     end
 
     attr_reader :edges, :rows
+
+    private
+
+    def validate!(edges)
+      fail InvalidPieceError, 'Edges cannot be nil' unless edges
+      fail InvalidPieceError,
+           'Invalid edge length. Must be 16.' unless edges.count == 16
+    end
   end
 
   class InvalidPieceError < Error
