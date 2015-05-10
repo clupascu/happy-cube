@@ -19,7 +19,7 @@ module HappyCube
     private
 
     def place_piece(level)
-      return true if @board.full?
+      return @board if @board.full?
 
       position_to_fill = POSITIONS[level]
 
@@ -28,14 +28,14 @@ module HappyCube
           @board.place_piece(rotated_piece, position_to_fill)
 
           if @board.valid?
-            return true if place_piece(level + 1)
+            return @board if place_piece(level + 1)
           else
             @board.remove_piece_from(position_to_fill)
           end
         end
       end
 
-      false
+      nil
     end
 
     def get_available_pieces

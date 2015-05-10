@@ -82,7 +82,57 @@ module HappyCube
       true
     end
 
+    def to_s
+      canvas = (0...13).map{ |_| ' ' * 17 }
+
+      @pieces.each do |pos, piece|
+        print_piece canvas, pos, piece
+      end
+
+      canvas.join "\n"
+    end
+
     private
+
+    OUTPUT_CHARS = {
+      down: '@',
+      up: '#',
+      left: '^',
+      right: '.',
+      back: '|',
+      front: '-',
+    }
+
+    def print_piece(canvas, position, piece)
+      offset_y, offset_x = get_offset(position)
+
+      char = OUTPUT_CHARS[position]
+
+      piece.rows.each.with_index do |row, y|
+        row.each.with_index do |c, x|
+          if c == 1
+            canvas[y + offset_y][x + offset_x] = char
+          end
+        end
+      end
+    end
+
+    def get_offset(position)
+      case position
+      when :down
+        [4, 4]
+      when :left
+        [4, 0]
+      when :right
+        [4, 8]
+      when :up
+        [4, 12]
+      when :back
+        [0, 4]
+      when :front
+        [8, 4]
+      end
+    end
 
     def collision?(edge1, edge2)
       edge1.zip(edge2).any?{ |a, b| a == 1 && b == 1 }

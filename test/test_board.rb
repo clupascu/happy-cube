@@ -106,5 +106,63 @@ module HappyCube
       @board.place_piece(@full_piece, :right)
       assert_equal false, @board.valid?
     end
+
+
+    def test_string_representation_of_empty_board
+      assert_equal \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 ", @board.to_s
+    end
+
+    def test_string_representation_with_one_piece_down
+      piece = Piece.new([0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])
+      @board.place_piece(piece, :down)
+
+      assert_equal \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "     @ @         \n" \
+        "    @@@@@        \n" \
+        "     @@@         \n" \
+        "    @@@@@        \n" \
+        "     @ @         \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 ", @board.to_s
+    end
+
+    def test_string_representation_with_one_piece_up
+      piece = Piece.new([0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])
+      @board.place_piece(piece, :up)
+
+      assert_equal \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "             # # \n" \
+        "            #####\n" \
+        "             ### \n" \
+        "            #####\n" \
+        "             # # \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 \n" \
+        "                 ", @board.to_s
+    end
   end
 end
