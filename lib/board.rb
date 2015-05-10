@@ -33,8 +33,6 @@ module HappyCube
       @pieces.values
     end
 
-
-
     # Board looks like this: 
     #
     #     +---+
@@ -63,7 +61,23 @@ module HappyCube
       right_piece = @pieces.fetch(:right, Piece.without_edges)
 
       return false if collision?(down_piece.edge(:left), left_piece.edge(:right))
+      return false if collision?(down_piece.edge(:right), right_piece.edge(:left))
 
+      return false if collision?(down_piece.edge(:top), back_piece.edge(:bottom))
+      return false if collision?(down_piece.edge(:bottom), front_piece.edge(:top))
+
+      return false if collision?(right_piece.edge(:right), up_piece.edge(:left))
+      return false if collision?(left_piece.edge(:left), up_piece.edge(:right))
+
+      return false if collision?(left_piece.edge(:left), up_piece.edge(:right))
+
+      return false if collision?(back_piece.edge(:right), right_piece.edge(:top).reverse)
+      return false if collision?(back_piece.edge(:top), up_piece.edge(:top).reverse)
+      return false if collision?(back_piece.edge(:left), left_piece.edge(:top).reverse)
+
+      return false if collision?(front_piece.edge(:right), right_piece.edge(:bottom).reverse)
+      return false if collision?(front_piece.edge(:bottom), up_piece.edge(:bottom).reverse)
+      return false if collision?(front_piece.edge(:left), left_piece.edge(:bottom).reverse)
 
       true
     end

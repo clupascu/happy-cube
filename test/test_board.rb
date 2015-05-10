@@ -101,6 +101,10 @@ module HappyCube
       assert_equal false, @board.valid?
     end
 
-
+    def test_detects_collision_down_with_right
+      @board.place_piece(@full_piece, :down)
+      @board.place_piece(@full_piece, :right)
+      assert_equal false, @board.valid?
+    end
   end
 end
