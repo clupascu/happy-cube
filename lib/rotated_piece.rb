@@ -1,9 +1,5 @@
-require 'printable_piece'
-
 module HappyCube
   class RotatedPiece
-    include PrintablePiece
-
     def self.get_all_possible_rotations(piece)
       rotations = [*0...4]
       flippings = [true, false]

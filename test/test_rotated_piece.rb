@@ -8,11 +8,11 @@ module HappyCube
       no_rotation = RotatedPiece.new(PIECE, 0, false)
 
       assert_equal(
-        " @ @ \n" \
-        "@@@@ \n" \
-        " @@@@\n" \
-        "@@@@ \n" \
-        "@ @  ", 
+        ' @ @ ' \
+        '@@@@ ' \
+        ' @@@@' \
+        '@@@@ ' \
+        '@ @  ', 
         no_rotation.to_s)
     end
 
@@ -20,11 +20,11 @@ module HappyCube
       rotated = RotatedPiece.new(PIECE, 1, false)
 
       assert_equal(
-        "@@ @ \n" \
-        " @@@@\n" \
-        "@@@@ \n" \
-        " @@@@\n" \
-        "  @  ",
+        '@@ @ ' \
+        ' @@@@' \
+        '@@@@ ' \
+        ' @@@@' \
+        '  @  ',
         rotated.to_s)
     end
 
@@ -32,11 +32,11 @@ module HappyCube
       rotated = RotatedPiece.new(PIECE, 1, false)
 
       assert_equal(
-        "@@ @ \n" \
-        " @@@@\n" \
-        "@@@@ \n" \
-        " @@@@\n" \
-        "  @  ",
+        '@@ @ ' \
+        ' @@@@' \
+        '@@@@ ' \
+        ' @@@@' \
+        '  @  ',
         rotated.to_s)
     end
 
@@ -44,11 +44,11 @@ module HappyCube
       rotated = RotatedPiece.new(PIECE, 3, false)
 
       assert_equal(
-        "  @  \n" \
-        "@@@@ \n" \
-        " @@@@\n" \
-        "@@@@ \n" \
-        " @ @@",
+        '  @  ' \
+        '@@@@ ' \
+        ' @@@@' \
+        '@@@@ ' \
+        ' @ @@',
         rotated.to_s)
     end
 
@@ -56,25 +56,23 @@ module HappyCube
       flipped = RotatedPiece.new(PIECE, 0, true)
 
       assert_equal(
-        " @ @ \n" \
-        " @@@@\n" \
-        "@@@@ \n" \
-        " @@@@\n" \
-        "  @ @", 
+        ' @ @ ' \
+        ' @@@@' \
+        '@@@@ ' \
+        ' @@@@' \
+        '  @ @', 
         flipped.to_s)
     end
 
     def test_flipped_and_rotated_90_clockwise
       flipped = RotatedPiece.new(PIECE, 1, true)
-      puts
-      puts flipped.to_s
 
       assert_equal(
-        "  @  \n" \
-        " @@@@\n" \
-        "@@@@ \n" \
-        " @@@@\n" \
-        "@@ @ ",
+        '  @  ' \
+        ' @@@@' \
+        '@@@@ ' \
+        ' @@@@' \
+        '@@ @ ',
         flipped.to_s)
     end
 
