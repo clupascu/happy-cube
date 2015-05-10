@@ -2,16 +2,18 @@ require 'test_helper'
 
 module HappyCube
   class TestPiece < Minitest::Test
-    def test_can_create_specifying_the_edges
-      p = Piece.new([0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1])
+    def setup
+      @p = Piece.new([0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1])
+    end
 
+    def test_can_create_specifying_the_edges
       assert_equal [
         [0, 1, 0, 1, 0],
         [1, 1, 1, 1, 0],
         [0, 1, 1, 1, 1],
         [1, 1, 1, 1, 0],
         [1, 0, 1, 0, 0]
-      ], p.rows
+      ], @p.rows
     end
 
     def test_validates_edges_are_not_nil
@@ -36,15 +38,49 @@ module HappyCube
     end
 
     def test_string_representation
-      p = Piece.new([0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1])
-
       assert_equal(
         ' @ @ ' \
         '@@@@ ' \
         ' @@@@' \
         '@@@@ ' \
         '@ @  ', 
-        p.to_s)
+        @p.to_s)
+    end
+
+
+    # [0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1]
+
+    def test_top_edge_enumerated_left_to_right
+      assert_equal [0, 1, 0, 1, 0], @p.edge(:top)
+    end
+
+    def test_bottom_edge_enumerated_left_to_right
+      assert_equal [1, 0, 1, 0, 0], @p.edge(:bottom)
+    end
+
+    def test_left_edge_enumerated_top_to_bottom
+      assert_equal [0, 1, 0, 1, 1], @p.edge(:left)
+    end
+
+    def test_right_edge_enumerated_top_to_bottom
+      assert_equal [0, 0, 1, 0, 0], @p.edge(:right)
+    end
+
+
+    def test_top_left_corner
+      assert_equal 0, @p.corner(:top_left)
+    end
+
+    def test_top_right_corner
+      assert_equal 0, @p.corner(:top_right)
+    end
+    
+    def test_bottom_left_corner
+      assert_equal 1, @p.corner(:bottom_left)
+    end
+    
+    def test_bottom_right_corner
+      assert_equal 0, @p.corner(:bottom_right)
     end
   end
 end

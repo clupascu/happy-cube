@@ -21,5 +21,13 @@ module HappyCube
     end
 
     attr_reader :edges, :rows, :original_piece
+
+    def edge(direction)
+      @rotated_piece.edge(direction)
+    end
+
+    def corner(direction)
+      @rotated_piece.corner(direction)
+    end
   end
 end
