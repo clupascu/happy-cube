@@ -2,4 +2,4 @@
 
 A solver for [Happy cubes](http://www.happycube.com/) written in Ruby.
 
-**Work in progress!**
+To invoke the solver, open `lib/run.rb`, adjust the input, then run the file.
