@@ -1,30 +1,45 @@
 module HappyCube
-  # class Solver
-  #   def initialize(pieces)
-  #     @pieces = pieces
-  #     @board = Board.new
-  #   end
+  class Solver
+    def initialize(pieces)
+      @pieces = pieces
+      @board = Board.new
+    end
 
-  #   POSITIONS = [:center, :west, :north, :south, :east, :far_east]
+    POSITIONS = [:down, :left, :right, :front, :back, :up]
 
-  #   def solve
-  #     @board.place(@pieces[0], :center)
-  #     place_next_pieces
-  #   end
+    attr_reader :board
 
-  #   private
+    def solve
+      # First piece is not rotated
+      first_piece = RotatedPiece.new(@pieces[0], 0, false)
+      @board.place_piece(first_piece, :down)
+      place_piece(1)
+    end
 
-  #   def place_next_pieces
-  #     return if board.is_full
+    private
 
-  #     position_to_fill = POSITIONS[board.count]
+    def place_piece(level)
+      return true if @board.full?
 
-  #     for piece in get_available_pieces
-  #       for rotated_piece in piece.get_rotations
-  #         @board.place(rotated_piece, position_to_fill)
-  #         place_next_pieces
-  #       end
-  #     end
-  #   end
-  # end
+      position_to_fill = POSITIONS[level]
+
+      for piece in get_available_pieces
+        for rotated_piece in RotatedPiece.get_all_possible_rotations(piece)
+          @board.place_piece(rotated_piece, position_to_fill)
+
+          if @board.valid?
+            return true if place_piece(level + 1)
+          else
+            @board.remove_piece_from(position_to_fill)
+          end
+        end
+      end
+
+      false
+    end
+
+    def get_available_pieces
+      @pieces - @board.get_all_pieces.map{ |rp| rp.original_piece }
+    end
+  end
 end

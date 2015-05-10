@@ -11,8 +11,15 @@ module HappyCube
       Piece.new([0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1])
     ]
 
-    def todo_test_solve
-      # Solver.new(PIECES)
+    def test_can_solve
+      solver = Solver.new(PIECES)
+      assert solver.solve
+    end
+
+    def test_unsolvable_problem
+      full_pieces = (0...6).map{ |_| Piece.new([1] * 16) }
+      solver = Solver.new full_pieces
+      refute solver.solve
     end
   end
 end

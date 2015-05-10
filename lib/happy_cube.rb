@@ -5,3 +5,8 @@ module HappyCube
   class Error < RuntimeError
   end
 end
+
+require 'piece'
+require 'rotated_piece'
+require 'board'
+require 'solver'
