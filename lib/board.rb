@@ -75,9 +75,9 @@ module HappyCube
 
       return false if collision?(back_piece.edge(:right), right_piece.edge(:top).reverse)
       return false if collision?(back_piece.edge(:top), up_piece.edge(:top).reverse)
-      return false if collision?(back_piece.edge(:left), left_piece.edge(:top).reverse)
+      return false if collision?(back_piece.edge(:left), left_piece.edge(:top))
 
-      return false if collision?(front_piece.edge(:right), right_piece.edge(:bottom).reverse)
+      return false if collision?(front_piece.edge(:right), right_piece.edge(:bottom))
       return false if collision?(front_piece.edge(:bottom), up_piece.edge(:bottom).reverse)
       return false if collision?(front_piece.edge(:left), left_piece.edge(:bottom).reverse)
 
