@@ -13,11 +13,11 @@ module HappyCube
     # [0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1]
     # can be represented graphically like this:
     #
-    #  @ @
-    # @@@@
-    #  @@@@
-    # @@@@
-    # @ @
+    #  █ █
+    # ████
+    #  ████
+    # ████
+    # █ █
     #
     def initialize(edges)
       validate! edges

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 module HappyCube
   class Board
     POSITIONS = [:down, :left, :right, :front, :back, :up]
@@ -95,12 +97,12 @@ module HappyCube
     private
 
     OUTPUT_CHARS = {
-      down: '@',
-      up: '#',
-      left: '^',
-      right: '.',
-      back: '|',
-      front: '-',
+      down: '█',
+      up: '█',
+      left: '░',
+      right: '░',
+      back: '▒',
+      front: '▒',
     }
 
     def print_piece(canvas, position, piece)
