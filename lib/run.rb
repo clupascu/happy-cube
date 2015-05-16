@@ -79,5 +79,14 @@ violet_marble_cube = [
   create_piece('1010110001100001'),
 ]
 
-solver = HappyCube::Solver.new(violet_marble_cube)
+blue_cube = [
+  create_piece('0010001011011010'),
+  create_piece('0101001001010010'),
+  create_piece('0101001011010010'),
+  create_piece('0010001001010101'),
+  create_piece('1010001011011101'),
+  create_piece('0101010111011010'),
+]
+
+solver = HappyCube::Solver.new(blue_cube)
 puts solver.solve
