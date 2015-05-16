@@ -88,5 +88,23 @@ blue_cube = [
   create_piece('0101010111011010'),
 ]
 
-solver = HappyCube::Solver.new(blue_cube)
+violet_red_cube = [
+  create_piece('0010001101010101'),
+  create_piece('0010001000111010'),
+  create_piece('1101001011011101'),
+  create_piece('1101001000100101'),
+  create_piece('1101010000100101'),
+  create_piece('0100001011011010'),
+]
+
+yellow_cube = [
+  create_piece('1010000111011101'),
+  create_piece('0110001001011100'),
+  create_piece('0101001000110010'),
+  create_piece('1100010111011001'),
+  create_piece('0010000111100101'),
+  create_piece('0110001000100110'),
+]
+
+solver = HappyCube::Solver.new(yellow_cube)
 puts solver.solve
