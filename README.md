@@ -57,3 +57,21 @@ pieces = [
 solver = HappyCube::Solver.new(pieces)
 puts solver.solve
 ```
+
+This will print a 2D representation of the solved cube: 
+
+```
+     # #
+     ###
+    #####
+     ###
+** **#@#** *@ @
+ ***@@@@@***@@@@@
+*****@@@*****@@@
+ ***@@@@@***@@@@@
+  * #@#@** ** @ @
+    ####
+     ####
+    ####
+     # #
+```
