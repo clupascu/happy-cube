@@ -1,6 +1,6 @@
 # happy-cube
 
-A solver for [Happy cubes](http://www.happycube.com/) written in Ruby.
+A solver for [Happy cubes](http://www.happycube.com/) written in Ruby. See more details in [this codegolf challenge](http://codegolf.stackexchange.com/q/50469/3527).
 
 ## Installation
 
