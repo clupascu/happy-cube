@@ -7,7 +7,7 @@ A solver for [Happy cubes](http://www.happycube.com/) written in Ruby.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'happy_cube'
+gem 'happy_cube', git: 'https://github.com/clupascu/happy-cube.git'
 ```
 
 and then execute:
