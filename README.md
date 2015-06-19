@@ -32,11 +32,13 @@ For examplethe edge configuration:
 
 corresponds to this piece:
 
+```
  █ █
 ████
  ████
 ████
 █ █
+```
 
 So, a complete example looks like this:
 
