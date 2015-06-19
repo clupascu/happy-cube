@@ -31,6 +31,10 @@ module HappyCube
       ]
     end
 
+    def self.create(edge_configuration)
+      HappyCube::Piece.new edge_configuration.chars.map(&:to_i)
+    end
+
     attr_reader :edges, :rows
 
     def edge(direction)

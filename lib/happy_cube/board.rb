@@ -99,10 +99,10 @@ module HappyCube
     OUTPUT_CHARS = {
       down: '@',
       up: '@',
-      left: '░',
-      right: '░',
-      back: '▒',
-      front: '▒',
+      left: '*',
+      right: '*',
+      back: '#',
+      front: '#',
     }
 
     def print_piece(canvas, position, piece)

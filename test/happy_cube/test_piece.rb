@@ -82,5 +82,11 @@ module HappyCube
     def test_bottom_right_corner
       assert_equal 0, @p.corner(:bottom_right)
     end
+
+
+    def test_can_be_created_using_a_string_instead_of_an_array
+      a_piece = Piece.create('0101001000101101')
+      assert_equal @p.edges, a_piece.edges
+    end
   end
 end
