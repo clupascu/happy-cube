@@ -6,7 +6,8 @@ module HappyCube
   end
 end
 
-require 'piece'
-require 'rotated_piece'
-require 'board'
-require 'solver'
+require 'happy_cube/version'
+require 'happy_cube/piece'
+require 'happy_cube/rotated_piece'
+require 'happy_cube/board'
+require 'happy_cube/solver'

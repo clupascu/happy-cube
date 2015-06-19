@@ -97,8 +97,8 @@ module HappyCube
     private
 
     OUTPUT_CHARS = {
-      down: '█',
-      up: '█',
+      down: '@',
+      up: '@',
       left: '░',
       right: '░',
       back: '▒',

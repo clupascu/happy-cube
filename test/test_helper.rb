@@ -3,7 +3,7 @@ lib_dir = "#{test_dir}/../lib"
 
 $LOAD_PATH.unshift lib_dir
 
-require 'happy_cube'
+require_relative '../lib/happy_cube'
 
 module HappyCube
   module PrintablePiece
