@@ -129,7 +129,16 @@ cubes = {
     HappyCube::Piece.create('0010010110101101'),
     HappyCube::Piece.create('0101110110101101'),
   ],
+
+  :easy_yellow => [
+    HappyCube::Piece.create('0010001011011101'),
+    HappyCube::Piece.create('1010001001011101'),
+    HappyCube::Piece.create('0101001001010010'),
+    HappyCube::Piece.create('0010010100100101'),
+    HappyCube::Piece.create('1010001001011101'),
+    HappyCube::Piece.create('0010001011011101'),
+  ]
 }
 
-solver = HappyCube::Solver.new(cubes[:green])
+solver = HappyCube::Solver.new(cubes[:easy_yellow])
 puts solver.solve
